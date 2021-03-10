@@ -8,12 +8,12 @@ import retrofit2.http.POST
 import retrofit2.http.Query
 
 interface LoginService {
-    @GET("/user/login")
+    @GET("/login")
     fun tryLogin(
-        @Query("username") username : String,
+        @Query("userName") username : String,
         @Query("password") password : String) : Call<String>
 
-    @POST("/user/register")
+    @POST("/register")
     fun register(
         @Query("fullname") fullname : String,
         @Query("username") username : String,

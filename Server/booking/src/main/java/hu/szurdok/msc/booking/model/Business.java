@@ -18,8 +18,8 @@ public class Business {
     private Long id;
     @Column
     private String name;
-    @Column
-    private OpeningHours openingHours;  //serializalva tarolva
+    //@Column
+    //private OpeningHours openingHours;  //serializalva tarolva
     @Column
     private String description;
 }

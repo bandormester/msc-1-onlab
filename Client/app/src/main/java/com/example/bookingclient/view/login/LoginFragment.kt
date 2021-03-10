@@ -28,10 +28,11 @@ class LoginFragment : Fragment(){
 
         val loginObserver = Observer<String>{
             if(it != ""){
-                val intent = Intent(activity, MainActivity::class.java).apply {
-                    putExtra("api-token", it)
-                }
-                startActivity(intent)
+                Toast.makeText(activity, it, Toast.LENGTH_LONG).show()
+                //val intent = Intent(activity, MainActivity::class.java).apply {
+                //    putExtra("api-token", it)
+                //}
+                //startActivity(intent)
             }else {
                 if(it.isNotEmpty()) Toast.makeText(activity, it, Toast.LENGTH_LONG).show()
             }

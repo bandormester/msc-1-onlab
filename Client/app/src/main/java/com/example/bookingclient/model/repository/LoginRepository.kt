@@ -2,6 +2,7 @@ package com.example.bookingclient.model.repository
 
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.bookingclient.di.BookingApplication
 import com.example.bookingclient.model.service.LoginService
@@ -38,11 +39,6 @@ class LoginRepository (
             override fun onResponse(call: Call<String>, response: Response<String>) {
                 if(response.isSuccessful){
                     token!!.value = response.body()
-                    if(response.body() != ""){
-                        val editor = sharedPreferences.edit()
-                        editor.putString(app.API_KEY, response.body()!!)
-                        editor.apply()
-                    }
                 }
                 else{
                     token!!.value = "Login failed"
@@ -50,6 +46,8 @@ class LoginRepository (
             }
 
             override fun onFailure(call: Call<String>, t: Throwable) {
+                Log.d("retrofit",t.message.toString())
+                Log.d("retrofit",t.cause.toString())
                 token!!.value = "Unable to connect server"
             }
         })

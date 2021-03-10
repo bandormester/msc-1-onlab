@@ -13,8 +13,6 @@ class RegisterViewModel (
     val registrationStatus: LiveData<Boolean> = registerRepository.getStatus()
 
     fun register(fullname : String, username : String, email : String, password : String){
-        var picture: ByteArray? = null
-
         val codedPassword = password//TODO Hashing.sha256().hashString(password, StandardCharsets.UTF_8).toString()
 
         registerRepository.register(fullname, username, email, codedPassword)
