@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">BookingClient</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="log_in">Log in</string>
+    <string name="register">Register</string>
+    <string name="back">Back</string>
+    <string name="fullname">Full name</string>
+    <string name="email">Email</string>
 </resources>
