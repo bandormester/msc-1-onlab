@@ -13,12 +13,6 @@ public class UserController {
 	@Autowired
 	UserRepository userRepository;
 
-	@GetMapping("/getAllUsers")
-	public List<User> getAllUsers()
-	{
-		return userRepository.findAll();
-	}
-
 	@PostMapping("/register")
 	public Boolean registerUser(@RequestBody User user)
 	{
@@ -32,8 +26,8 @@ public class UserController {
 	@GetMapping("/login")
 	public String login(@RequestParam(value="userName") String userName,
 						@RequestParam(value="password") String password){
-		System.out.println(userName);
 		Optional<User> user = userRepository.findByUserName(userName);
+
 		if(user.isPresent()){
 			if(user.get().getPassword().equals(password)){
 				return "Siker";
@@ -43,16 +37,16 @@ public class UserController {
 		return "Wrong username";
 	}
 
+	@GetMapping("/getAllUsers")
+	public List<User> getAllUsers()
+	{
+		return userRepository.findAll();
+	}
+
 	@GetMapping("/getUserById/{id}")
 	public Optional<User> getUserById(@PathVariable(value="id") Long id)
 	{
 		return userRepository.findById(id);
-	}
-
-	@PostMapping("/addUser")
-	public User addUser(@RequestBody User user)
-	{
-		return userRepository.save(user);
 	}
 
 	@PutMapping("/updateUser/{id}")
