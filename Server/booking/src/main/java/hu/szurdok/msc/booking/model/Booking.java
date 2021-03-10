@@ -15,13 +15,14 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Booking {
     @Id
+    @GeneratedValue
     private Long id;
-    @Column
+
     private Long serviceId;
-    @Column
+
     private Long userId;
-    @Column
+
     private LocalDateTime startTime;
-    @Column
+
     private String message;
 }

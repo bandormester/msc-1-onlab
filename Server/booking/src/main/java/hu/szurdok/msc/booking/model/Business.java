@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
@@ -15,11 +16,12 @@ import javax.persistence.Id;
 @NoArgsConstructor
 public class Business {
     @Id
+    @GeneratedValue
     private Long id;
-    @Column
+
     private String name;
-    //@Column
-    //private OpeningHours openingHours;  //serializalva tarolva
     @Column
+    private OpeningHours openingHours;  //serializalva tarolva
+
     private String description;
 }

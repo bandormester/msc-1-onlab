@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
@@ -14,17 +15,18 @@ import javax.persistence.Id;
 @NoArgsConstructor
 public class BusinessService {
     @Id
+    @GeneratedValue
     private Long id;
-    @Column
+
     private Long businessId;
-    @Column
+
     private String name;
-    @Column
+
     private String description;
-    @Column
+
     private Integer duration;   //perceket fog jelenteni
-    @Column
+
     private Float price;
-    @Column
+
     private Boolean available;
 }

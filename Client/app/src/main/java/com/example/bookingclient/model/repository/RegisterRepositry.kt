@@ -2,6 +2,7 @@ package com.example.bookingclient.model.repository
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import com.example.bookingclient.model.entities.User
 import com.example.bookingclient.model.service.LoginService
 import retrofit2.Call
 import retrofit2.Callback
@@ -22,8 +23,8 @@ class RegisterRepositry (
         status = null
     }
 
-    fun register(fullname : String, username : String, email : String, password : String) {
-        loginService.register(fullname, username, email, password).enqueue(object :
+    fun register(user : User) {
+        loginService.register(user).enqueue(object :
             Callback<Boolean> {
             override fun onResponse(call: Call<Boolean>, response: Response<Boolean>) {
                 if (response.isSuccessful) {

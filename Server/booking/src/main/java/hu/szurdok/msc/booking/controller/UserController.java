@@ -19,6 +19,16 @@ public class UserController {
 		return userRepository.findAll();
 	}
 
+	@PostMapping("/register")
+	public Boolean registerUser(@RequestBody User user)
+	{
+		User newUser = userRepository.save(user);
+
+		System.out.println("register");
+
+		return newUser.getUserName().equals(user.getUserName());
+	}
+
 	@GetMapping("/login")
 	public String login(@RequestParam(value="userName") String userName,
 						@RequestParam(value="password") String password){

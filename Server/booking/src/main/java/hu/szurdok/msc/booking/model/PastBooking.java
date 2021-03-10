@@ -12,8 +12,8 @@ import javax.persistence.Entity;
 @Setter
 @NoArgsConstructor
 public class PastBooking extends Booking{
-    @Column
+
     private Boolean isSuccess;
-    @Column
+
     private Long ratingId;
 }

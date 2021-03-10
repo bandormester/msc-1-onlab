@@ -1,5 +1,6 @@
 package com.example.bookingclient.model.service
 
+import com.example.bookingclient.model.entities.User
 import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.Body
@@ -15,8 +16,5 @@ interface LoginService {
 
     @POST("/register")
     fun register(
-        @Query("fullname") fullname : String,
-        @Query("username") username : String,
-        @Query("email") email : String,
-        @Query("password") password : String) : Call<Boolean>
+        @Query("userDetails") user : User) : Call<Boolean>
 }

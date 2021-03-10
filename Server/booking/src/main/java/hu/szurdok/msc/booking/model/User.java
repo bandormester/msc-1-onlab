@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
@@ -14,13 +15,14 @@ import javax.persistence.Id;
 @NoArgsConstructor
 public class User {
     @Id
+    @GeneratedValue
     private Long id;
-    @Column
+
     private String userName;
-    @Column
+
     private String email;
-    @Column
+
     private String fullName;
-    @Column
+
     private String password;    //az autentikaciorol nem tudom meg hogy lesz
 }
